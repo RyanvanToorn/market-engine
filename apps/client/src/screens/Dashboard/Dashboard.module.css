@@ -1,0 +1,43 @@
+.Dashboard {
+	width: 100%;
+	height: 100%;
+}
+
+.DashboardPaper {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.GridContainer {
+	height: 60%;
+	width: 60%;
+}
+
+.GridRow {
+	height: 33%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 0.5rem 0rem;
+	justify-content: center;
+}
+
+.GridCell {
+	width: 33%;
+	height: 100%;
+	margin: 0 0.5rem;
+}
+
+.GridCellPaper {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}

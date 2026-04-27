@@ -1,0 +1,47 @@
+/* Core Components */
+.SidebarContainer {
+	width: 30vw;
+	height: calc(100vh - 3rem);
+	position: absolute;
+	top: 3rem;
+	right: 0;
+	background-color: grey;
+	overflow: hidden;
+}
+
+.SidebarContainer.SidebarContainerExpanded {
+	width: 100vw;
+}
+
+.Sidebar {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.SidebarHeader {
+	width: 100%;
+	min-height: 4rem;
+	padding: 0.25rem;
+}
+
+.SidebarBody {
+	width: 100%;
+	flex-grow: 1;
+	min-height: 2rem;
+	padding: 0.25rem;
+}
+
+/* Sub Components */
+.SidebarPaper {
+	height: 100%;
+	width: 100%;
+}
+
+.SidebarHeaderButtonBox {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
