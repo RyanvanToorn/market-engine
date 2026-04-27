@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import * as repo from '../repositories/instrument.repo';
+import * as repository from '../repositories/instrument.repo';
 import * as priceHistoryRepo from '../repositories/price-history.repo';
 import * as dividendRepo from '../repositories/dividend.repo';
 import { PriceHistoryRecord } from '../repositories/price-history.repo';
@@ -12,7 +12,7 @@ const router = Router();
 // GET /instruments
 router.get('/', async (_req, res, next) => {
   try {
-    res.json(await repo.getAll());
+    res.json(await repository.getAll());
   } catch (err) {
     next(err);
   }
@@ -21,7 +21,7 @@ router.get('/', async (_req, res, next) => {
 // GET /instruments/keys  — must be registered before /:id
 router.get('/keys', async (_req, res, next) => {
   try {
-    res.json(await repo.getKeys());
+    res.json(await repository.getKeys());
   } catch (err) {
     next(err);
   }
@@ -37,7 +37,7 @@ router.post('/', async (req, res, next) => {
       exchange: string;
       currency?: string;
     };
-    const entity = await repo.add({ symbol, name, typeId, exchange, currency: currency ?? '' });
+    const entity = await repository.add({ symbol, name, typeId, exchange, currency: currency ?? '' });
     res.status(201).json(entity);
   } catch (err) {
     next(err);
@@ -54,7 +54,7 @@ router.post('/batch', async (req, res, next) => {
       exchange: string;
       currency?: string;
     }>;
-    const count = await repo.addRange(
+    const count = await repository.addRange(
       items.map((i) => ({ ...i, currency: i.currency ?? '' })),
     );
     res.status(201).json({ count });
@@ -76,12 +76,12 @@ router.put('/batch', async (req, res, next) => {
     const updates: typeof reqs = [];
 
     for (const r of reqs) {
-      const entity = await repo.getById(r.id);
+      const entity = await repository.getById(r.id);
       if (!entity) return res.status(404).json({ id: r.id });
       updates.push(r);
     }
 
-    const count = await repo.updateRange(updates);
+    const count = await repository.updateRange(updates);
     res.json({ count });
   } catch (err) {
     next(err);
@@ -98,7 +98,7 @@ router.put('/:id', async (req, res, next) => {
       typeId: number;
       exchange: string;
     };
-    const entity = await repo.update(id, { symbol, name, typeId, exchange });
+    const entity = await repository.update(id, { symbol, name, typeId, exchange });
     if (!entity) return res.status(404).end();
     res.json(entity);
   } catch (err) {
@@ -110,7 +110,7 @@ router.put('/:id', async (req, res, next) => {
 router.delete('/batch', async (req, res, next) => {
   try {
     const ids = req.body as number[];
-    await repo.removeRange(ids);
+    await repository.removeRange(ids);
     res.status(204).end();
   } catch (err) {
     next(err);
@@ -121,9 +121,9 @@ router.delete('/batch', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
   try {
     const id = parseInt(req.params.id, 10);
-    const entity = await repo.getById(id);
+    const entity = await repository.getById(id);
     if (!entity) return res.status(404).end();
-    await repo.remove(id);
+    await repository.remove(id);
     res.status(204).end();
   } catch (err) {
     next(err);
@@ -134,7 +134,7 @@ router.delete('/:id', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try {
     const id = parseInt(req.params.id, 10);
-    const entity = await repo.getById(id);
+    const entity = await repository.getById(id);
     if (!entity) return res.status(404).end();
     res.json(entity);
   } catch (err) {
@@ -148,7 +148,7 @@ router.get('/:id', async (req, res, next) => {
 router.get('/:id/price-history', async (req, res, next) => {
   try {
     const id = parseInt(req.params.id, 10);
-    const instrument = await repo.getById(id);
+    const instrument = await repository.getById(id);
     if (!instrument) return res.status(404).end();
 
     const granularity = req.query.granularity as string | undefined;
@@ -163,7 +163,7 @@ router.get('/:id/price-history', async (req, res, next) => {
 router.post('/:id/price-history/batch', async (req, res, next) => {
   try {
     const id = parseInt(req.params.id, 10);
-    const instrument = await repo.getById(id);
+    const instrument = await repository.getById(id);
     if (!instrument) return res.status(404).end();
 
     const reqs = req.body as Array<{
@@ -207,7 +207,7 @@ router.post('/:id/price-history/batch', async (req, res, next) => {
 router.get('/:id/dividends', async (req, res, next) => {
   try {
     const id = parseInt(req.params.id, 10);
-    const instrument = await repo.getById(id);
+    const instrument = await repository.getById(id);
     if (!instrument) return res.status(404).end();
 
     const records = await dividendRepo.getByInstrument(id);
@@ -221,7 +221,7 @@ router.get('/:id/dividends', async (req, res, next) => {
 router.post('/:id/dividends/batch', async (req, res, next) => {
   try {
     const id = parseInt(req.params.id, 10);
-    const instrument = await repo.getById(id);
+    const instrument = await repository.getById(id);
     if (!instrument) return res.status(404).end();
 
     const reqs = req.body as Array<{

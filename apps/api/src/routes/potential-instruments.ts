@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import * as repo from '../repositories/potential-instrument.repo';
+import * as repository from '../repositories/potential-instrument.repo';
 
 const router = Router();
 
 // GET /potential-instruments
 router.get('/', async (_req, res, next) => {
   try {
-    res.json(await repo.getAll());
+    res.json(await repository.getAll());
   } catch (err) {
     next(err);
   }
@@ -21,7 +21,7 @@ router.post('/', async (req, res, next) => {
       typeId: number;
       exchange: string;
     };
-    const entity = await repo.add({ symbol, name, typeId, exchange });
+    const entity = await repository.add({ symbol, name, typeId, exchange });
     res.status(201).json(entity);
   } catch (err) {
     next(err);
@@ -37,7 +37,7 @@ router.post('/batch', async (req, res, next) => {
       typeId: number;
       exchange: string;
     }>;
-    const count = await repo.addRange(items);
+    const count = await repository.addRange(items);
     res.status(201).json({ count });
   } catch (err) {
     next(err);
@@ -57,12 +57,12 @@ router.put('/batch', async (req, res, next) => {
     const updates: typeof reqs = [];
 
     for (const r of reqs) {
-      const entity = await repo.getById(r.id);
+      const entity = await repository.getById(r.id);
       if (!entity) return res.status(404).json({ id: r.id });
       updates.push(r);
     }
 
-    const count = await repo.updateRange(updates);
+    const count = await repository.updateRange(updates);
     res.json({ count });
   } catch (err) {
     next(err);
@@ -79,7 +79,7 @@ router.put('/:id', async (req, res, next) => {
       typeId: number;
       exchange: string;
     };
-    const entity = await repo.update(id, { symbol, name, typeId, exchange });
+    const entity = await repository.update(id, { symbol, name, typeId, exchange });
     if (!entity) return res.status(404).end();
     res.json(entity);
   } catch (err) {
@@ -91,7 +91,7 @@ router.put('/:id', async (req, res, next) => {
 router.patch('/:id/validate', async (req, res, next) => {
   try {
     const id = parseInt(req.params.id, 10);
-    const entity = await repo.validate(id);
+    const entity = await repository.validate(id);
     if (!entity) return res.status(404).end();
     res.status(204).end();
   } catch (err) {
@@ -103,7 +103,7 @@ router.patch('/:id/validate', async (req, res, next) => {
 router.delete('/batch', async (req, res, next) => {
   try {
     const ids = req.body as number[];
-    await repo.removeRange(ids);
+    await repository.removeRange(ids);
     res.status(204).end();
   } catch (err) {
     next(err);
@@ -114,9 +114,9 @@ router.delete('/batch', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
   try {
     const id = parseInt(req.params.id, 10);
-    const entity = await repo.getById(id);
+    const entity = await repository.getById(id);
     if (!entity) return res.status(404).end();
-    await repo.remove(id);
+    await repository.remove(id);
     res.status(204).end();
   } catch (err) {
     next(err);
@@ -127,7 +127,7 @@ router.delete('/:id', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try {
     const id = parseInt(req.params.id, 10);
-    const entity = await repo.getById(id);
+    const entity = await repository.getById(id);
     if (!entity) return res.status(404).end();
     res.json(entity);
   } catch (err) {
