@@ -8,6 +8,7 @@
     "start": "node dist/server.js"
   },
   "dependencies": {
+    "@mui/icons-material": "^9.0.0",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "pg": "^8.13.3"

@@ -29,8 +29,8 @@ A personal financial data platform that scrapes market data from Yahoo Finance, 
 ### 1. Configure environment
 
 ```bash
-cp apps/api/.env.example apps/api/.env
-# Edit apps/api/.env with your database credentials
+cp .env-example .env
+# Edit .env with your database credentials
 ```
 
 ### 2. Install dependencies

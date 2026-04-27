@@ -24,7 +24,11 @@
       "@theme/*": ["./src/theme/*"],
       "@context/*": ["./src/context/*"],
       "@type/*": ["./src/types/*"],
-      "@interfaces/*": ["./src/interfaces/*"]
+      "@interfaces/*": ["./src/interfaces/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@components/*": ["./src/components/*"],
+      "@features/*": ["./src/features/*"]
     },
 
     /* Linting */
