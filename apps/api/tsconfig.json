@@ -3,6 +3,11 @@
     "target": "ES2022",
     "module": "CommonJS",
     "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@market-engine/types": ["../../packages/types/index.ts"],
+      "@market-engine/utils/*": ["../../packages/utils/*"]
+    },
     "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,

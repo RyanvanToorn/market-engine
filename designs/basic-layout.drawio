@@ -1,0 +1,53 @@
+<mxfile host="65bd71144e">
+    <diagram name="Desktop" id="E_rHSSk0FwQgu9SA8O1O">
+        <mxGraphModel dx="1726" dy="883" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="zxotO7aZbsstjNkcSaPn-0"/>
+                <mxCell id="zxotO7aZbsstjNkcSaPn-1" parent="zxotO7aZbsstjNkcSaPn-0"/>
+                <mxCell id="zxotO7aZbsstjNkcSaPn-2" value="" style="whiteSpace=wrap;html=1;" parent="zxotO7aZbsstjNkcSaPn-1" vertex="1">
+                    <mxGeometry x="53" y="330" width="745" height="440" as="geometry"/>
+                </mxCell>
+                <mxCell id="v86PWPy3-2JapEoEE0g--0" value="AppBar" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" parent="zxotO7aZbsstjNkcSaPn-1" vertex="1">
+                    <mxGeometry x="50" y="330" width="748" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="v86PWPy3-2JapEoEE0g--1" value="Sidebar Drawer (Collapsible)" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" parent="zxotO7aZbsstjNkcSaPn-1" vertex="1">
+                    <mxGeometry x="678" y="370" width="120" height="400" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram name="Tablet" id="9z6VWee3q1hUnZTMJ06q">
+        <mxGraphModel dx="1167" dy="883" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="nv59eUdp-668BsXm4PQA-0"/>
+                <mxCell id="nv59eUdp-668BsXm4PQA-1" parent="nv59eUdp-668BsXm4PQA-0"/>
+                <mxCell id="nv59eUdp-668BsXm4PQA-2" value="" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="nv59eUdp-668BsXm4PQA-1">
+                    <mxGeometry x="123" y="308" width="605" height="485" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4IHWO91z_DFx5axyGg9-0" value="AppBar" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="nv59eUdp-668BsXm4PQA-1">
+                    <mxGeometry x="123" y="308" width="607" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4IHWO91z_DFx5axyGg9-1" value="Sidebar Drawer (Collapsible)" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="nv59eUdp-668BsXm4PQA-1">
+                    <mxGeometry x="608" y="350" width="120" height="440" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram name="Phone" id="yiRsbiOVnYo4fI_PCqhd">
+        <mxGraphModel dx="1556" dy="1177" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="dCF4_W-3OnfwSoolIk9K-0"/>
+                <mxCell id="dCF4_W-3OnfwSoolIk9K-1" parent="dCF4_W-3OnfwSoolIk9K-0"/>
+                <mxCell id="dCF4_W-3OnfwSoolIk9K-2" value="" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1" vertex="1" parent="dCF4_W-3OnfwSoolIk9K-1">
+                    <mxGeometry x="228" y="208" width="395" height="685" as="geometry"/>
+                </mxCell>
+                <mxCell id="VLPDhG98AMkqJcO7ihQz-0" value="Bottom Nav" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="dCF4_W-3OnfwSoolIk9K-1">
+                    <mxGeometry x="230" y="853" width="390" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="VLPDhG98AMkqJcO7ihQz-2" value="AppBar" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="dCF4_W-3OnfwSoolIk9K-1">
+                    <mxGeometry x="228" y="208" width="392" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

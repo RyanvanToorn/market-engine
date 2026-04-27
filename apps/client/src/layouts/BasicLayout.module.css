@@ -1,0 +1,53 @@
+.BasicLayout {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.BasicLayoutTop {
+	min-width: 100vw;
+	min-height: 3rem;
+}
+
+.BasicLayoutMiddle {
+	flex-grow: 1;
+	min-width: 100vw;
+}
+
+.BasicLayoutBottom {
+	min-height: 0rem;
+	max-height: 3rem;
+	min-width: 100vw;
+}
+
+.TitleContainer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0rem 3rem;
+}
+
+.LinkContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.AccountButtonIcon {
+	color: white;
+}
+
+.AccountContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	flex: 1;
+}
+
+.ContentContainer {
+	width: 100%;
+	height: 100%;
+}
