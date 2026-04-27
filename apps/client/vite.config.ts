@@ -6,7 +6,7 @@ import path from 'node:path'
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    conditions: ['browser', 'development', 'import', 'default'],
+    conditions: ['browser', 'development', 'default'],
     alias: {
       '@market-engine/types': path.resolve(import.meta.dirname, '../../packages/types/index.ts'),
       '@market-engine/utils': path.resolve(import.meta.dirname, '../../packages/utils'),
