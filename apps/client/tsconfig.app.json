@@ -19,7 +19,12 @@
     "baseUrl": ".",
     "paths": {
       "@market-engine/types": ["../../packages/types/index.ts"],
-      "@market-engine/utils/*": ["../../packages/utils/*"]
+      "@market-engine/utils/*": ["../../packages/utils/*"],
+      "@screens/*": ["./src/screens/*"],
+      "@theme/*": ["./src/theme/*"],
+      "@context/*": ["./src/context/*"],
+      "@type/*": ["./src/types/*"],
+      "@interfaces/*": ["./src/interfaces/*"]
     },
 
     /* Linting */

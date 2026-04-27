@@ -19,6 +19,43 @@ A personal financial data platform that scrapes market data from Yahoo Finance, 
 | Scraper | TypeScript, Playwright |
 | Dev runtime | `tsx` |
 
+## Quick Start
+
+### Prerequisites
+
+- Node.js
+- PostgreSQL running locally (default: `localhost:5432`)
+
+### 1. Configure environment
+
+```bash
+cp apps/api/.env.example apps/api/.env
+# Edit apps/api/.env with your database credentials
+```
+
+### 2. Install dependencies
+
+```bash
+cd apps/api && npm install
+cd ../client && npm install
+```
+
+### Terminal 1 — API
+
+```bash
+cd apps/api
+npm run dev
+```
+
+### Terminal 2 — Client
+
+```bash
+cd apps/client
+npm run dev
+```
+
+---
+
 ## Monorepo Structure
 
 ```
