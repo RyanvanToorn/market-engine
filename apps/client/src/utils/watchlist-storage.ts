@@ -1,7 +1,7 @@
 import type { WatchlistItem } from "@interfaces/watchlist-item";
 import { safeGetItem, safeRemoveItem, safeSetItem } from "./local-storage";
 
-const STORAGE_KEY = "marketscope.watchlist";
+const STORAGE_KEY = "marketengine.watchlist";
 
 export const watchlistStorage = {
 	load(): WatchlistItem[] {

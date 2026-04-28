@@ -1,7 +1,7 @@
 import type { TabDefinition } from "@features/tab-browser/TabBrowser";
 import { safeGetItem, safeRemoveItem, safeSetItem } from "./local-storage";
 
-const STORAGE_KEY = "marketscope.tabBrowser";
+const STORAGE_KEY = "marketengine.tabBrowser";
 
 export type PersistedTabState = {
 	tabs: TabDefinition[];

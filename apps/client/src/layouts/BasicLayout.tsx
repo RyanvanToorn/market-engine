@@ -26,7 +26,7 @@ type BasicLayoutContextType = {
 	setLayout: React.Dispatch<React.SetStateAction<BasicLayoutState>>;
 };
 
-const baseTitle = "Market Scope";
+const baseTitle = "Market Engine";
 
 const BasicLayoutContext = React.createContext<BasicLayoutContextType | null>(null);
 
@@ -72,7 +72,7 @@ export function BasicLayout(): React.ReactElement | null {
 				<Box extendedClass={styles.BasicLayoutTop}>
 					<AppBar extendedClass={styles.AppBar}>
 						<Box extendedClass={styles.TitleContainer} onClick={titleOnClick} sx={titleContainerSx}>
-							<Typography text={"Market Scope"} variant="h1" extendedClass={styles.Title} sx={titleSx} />
+							<Typography text={"Market Engine"} variant="h1" extendedClass={styles.Title} sx={titleSx} />
 						</Box>
 
 						<Box extendedClass={styles.LinkContainer}>

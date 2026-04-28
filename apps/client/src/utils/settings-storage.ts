@@ -1,7 +1,7 @@
 import type { AppSettings } from "@interfaces/app-settings";
 import { safeGetItem, safeRemoveItem, safeSetItem } from "./local-storage";
 
-const STORAGE_KEY = "marketscope.settings";
+const STORAGE_KEY = "marketengine.settings";
 
 export const defaultSettings: AppSettings = {
 	themeMode: "system",

@@ -1,5 +1,5 @@
 /apps
-  /web           -> React + Vite frontend
+  /client        -> React + Vite frontend
   /api           -> Backend (Node/Java)
   /scraper       -> Playwright service (separate process)
   /worker        -> Analysis / ML jobs
