@@ -3,9 +3,11 @@ import { Paper } from "@components/Paper/Paper";
 import { Typography } from "@components/Typography/Typography";
 import styles from "./Scraper.module.css";
 import { IconButton } from "@components/IconButton/IconButton";
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import RestartAltIcon from '@mui/icons-material/RestartAlt';
-import StopIcon from '@mui/icons-material/Stop';
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import RestartAltIcon from "@mui/icons-material/RestartAlt";
+import StopIcon from "@mui/icons-material/Stop";
+import { TextField } from "@components/TextField/TextField";
+import { Checkbox } from "@components/Checkbox/Checkbox";
 
 /** Stop the scraper */
 function stopScraper() {
@@ -24,28 +26,26 @@ function restartScraper() {
 
 function ScraperControls(): React.ReactElement {
 	return (
-	<Box extendedClass={styles.ScraperControls}>
-		<IconButton onClick={stopScraper} aria-label="Stop scraper">
-			<StopIcon />
-		</IconButton>
-		
-		<IconButton onClick={startScraper} aria-label="Start scraper">
-			<PlayArrowIcon />
-		</IconButton>
+		<Box extendedClass={styles.ScraperControls}>
+			<IconButton onClick={stopScraper} aria-label="Stop scraper">
+				<StopIcon />
+			</IconButton>
 
-		<IconButton onClick={restartScraper} aria-label="Restart scraper">
-			<RestartAltIcon />
-		</IconButton>
-	</Box>);
+			<IconButton onClick={startScraper} aria-label="Start scraper">
+				<PlayArrowIcon />
+			</IconButton>
+
+			<IconButton onClick={restartScraper} aria-label="Restart scraper">
+				<RestartAltIcon />
+			</IconButton>
+		</Box>
+	);
 }
-
-
 
 export function Scraper(): React.ReactElement | null {
 	const fontSx = {
 		fontFamily: "'Fjalla One', sans-serif",
 	};
-
 
 	return (
 		<Box extendedClass={styles.Scraper}>
@@ -69,20 +69,16 @@ export function Scraper(): React.ReactElement | null {
 						<Box extendedClass={styles.ScraperConsoleConsole}></Box>
 					</Box>
 
-					
-
 					<Box extendedClass={styles.ScraperSettings}>
 						<Box extendedClass={styles.ScraperSettingsRow}>
-
+							<TextField />
 						</Box>
 
 						<Box extendedClass={styles.ScraperSettingsRow}>
-
+							<Checkbox />
 						</Box>
 
-						<Box extendedClass={styles.ScraperSettingsRow}>
-
-						</Box>
+						<Box extendedClass={styles.ScraperSettingsRow}></Box>
 					</Box>
 				</form>
 			</Paper>
