@@ -42,6 +42,23 @@ function ScraperControls(): React.ReactElement {
 	);
 }
 
+function ScraperSettings(): React.ReactElement {
+	return (
+		<Box extendedClass={styles.ScraperSettings}>
+			<Box extendedClass={styles.ScraperSettingsRow}>
+				<TextField label="Number of Workers:" type="number" />
+			</Box>
+
+			<Box extendedClass={styles.ScraperSettingsRow}>
+				<Typography text={"Headerless"} />
+				<Checkbox />
+			</Box>
+
+			<Box extendedClass={styles.ScraperSettingsRow}></Box>
+		</Box>
+	);
+}
+
 export function Scraper(): React.ReactElement | null {
 	const fontSx = {
 		fontFamily: "'Fjalla One', sans-serif",
@@ -54,6 +71,7 @@ export function Scraper(): React.ReactElement | null {
 				sx={{
 					borderRadius: "0rem",
 					backgroundColor: "background.paper",
+					height: "100%",
 				}}
 			>
 				<form className={styles.ScraperForm}>
@@ -69,17 +87,7 @@ export function Scraper(): React.ReactElement | null {
 						<Box extendedClass={styles.ScraperConsoleConsole}></Box>
 					</Box>
 
-					<Box extendedClass={styles.ScraperSettings}>
-						<Box extendedClass={styles.ScraperSettingsRow}>
-							<TextField />
-						</Box>
-
-						<Box extendedClass={styles.ScraperSettingsRow}>
-							<Checkbox />
-						</Box>
-
-						<Box extendedClass={styles.ScraperSettingsRow}></Box>
-					</Box>
+					<ScraperSettings />
 				</form>
 			</Paper>
 		</Box>

@@ -53,3 +53,9 @@
 .ScraperControls {
 	border: 0.0625rem solid;
 }
+
+.ScraperSettings {
+	border: 0.0625rem solid;
+	padding: var(--size-l);
+	width: 100%;
+}
