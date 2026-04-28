@@ -2,7 +2,6 @@ import { Box } from "@components/Box/Box";
 import { Divider } from "@components/Divider/Divider";
 import { Icon } from "@components/Icon/Icon";
 import { Paper } from "@components/Paper/Paper";
-import { TextField } from "@components/TextField/TextField";
 import { ToggleButton } from "@components/ToggleButtonGroup/ToggleButton";
 import { ToggleButtonGroup } from "@components/ToggleButtonGroup/ToggleButtonGroup";
 import { Typography } from "@components/Typography/Typography";
@@ -40,12 +39,6 @@ export function Settings(): React.ReactElement | null {
 		fontFamily: "'Fjalla One', sans-serif",
 	};
 
-	const settingRowSx = {
-		display: "flex",
-		flexDirection: "column",
-		alignItems: "center",
-	};
-
 	return (
 		<Box extendedClass={styles.Settings}>
 			<Paper
@@ -61,44 +54,6 @@ export function Settings(): React.ReactElement | null {
 					</Box>
 
 					<Divider orientation="horizontal" variant="fullWidth" flexItem />
-
-					<Box extendedClass={styles.SettingsSubHeading}>
-						<Typography text={labels.integrations} variant="h5" sx={fontSx} />
-					</Box>
-
-					<Box extendedClass={styles.SettingsFormRow} sx={settingRowSx}>
-						<TextField
-							extendedClass={styles.SettingsTextField}
-							label={labels.alphaVantageApiKey}
-							value={settings.apiKeys.alphaVantageKey ?? ""}
-							onChange={(event: any) => {
-								const value = event.target.value as string;
-								updateSettings({
-									apiKeys: {
-										...settings.apiKeys,
-										alphaVantageKey: value,
-									},
-								});
-							}}
-						/>
-					</Box>
-
-					<Box extendedClass={styles.SettingsFormRow} sx={settingRowSx}>
-						<TextField
-							extendedClass={styles.SettingsTextField}
-							label={labels.coinCapApiKey}
-							value={settings.apiKeys.coinCapKey ?? ""}
-							onChange={(event: any) => {
-								const value = event.target.value as string;
-								updateSettings({
-									apiKeys: {
-										...settings.apiKeys,
-										coinCapKey: value,
-									},
-								});
-							}}
-						/>
-					</Box>
 
 					<Divider orientation="horizontal" variant="fullWidth" flexItem />
 

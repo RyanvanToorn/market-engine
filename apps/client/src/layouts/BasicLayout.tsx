@@ -7,7 +7,6 @@ import { ScreenLink } from "@features/screen-link/ScreenLink";
 import { Sidebar } from "@features/sidebar/Sidebar";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ListAltIcon from "@mui/icons-material/ListAlt";
-import ScienceIcon from "@mui/icons-material/Science";
 import SettingsIcon from "@mui/icons-material/Settings";
 import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
 import TravelExploreIcon from "@mui/icons-material/TravelExplore";

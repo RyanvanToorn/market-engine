@@ -1,6 +1,5 @@
 import { Box } from "@components/Box/Box";
 import { Paper } from "@components/Paper/Paper";
-import { TabBrowser } from "@features/tab-browser/TabBrowser";
 import { useBasicLayout } from "@layouts/BasicLayout";
 import { useSearch } from "@tanstack/react-router";
 import { useEffect } from "react";
@@ -27,7 +26,6 @@ export function Browse(): React.ReactElement | null {
 					borderRadius: "0rem",
 				}}
 			>
-				<TabBrowser />
 			</Paper>
 		</Box>
 	);
