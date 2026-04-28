@@ -5,7 +5,6 @@ const STORAGE_KEY = "marketengine.settings";
 
 export const defaultSettings: AppSettings = {
 	themeMode: "system",
-	apiKeys: {},
 };
 
 export const settingsStorage = {

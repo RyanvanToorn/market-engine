@@ -6,10 +6,8 @@ import { Typography } from "@components/Typography/Typography";
 import { ScreenLink } from "@features/screen-link/ScreenLink";
 import { Sidebar } from "@features/sidebar/Sidebar";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import ListAltIcon from "@mui/icons-material/ListAlt";
 import SettingsIcon from "@mui/icons-material/Settings";
-import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
-import TravelExploreIcon from "@mui/icons-material/TravelExplore";
+import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 import type { Theme } from "@mui/material";
 import { Outlet, useNavigate } from "@tanstack/react-router";
 import React, { useEffect, useState } from "react";
@@ -76,11 +74,10 @@ export function BasicLayout(): React.ReactElement | null {
 						</Box>
 
 						<Box extendedClass={styles.LinkContainer}>
-							<ScreenLink href={"dashboard"} label={"Dashboard"} icon={SpaceDashboardIcon} />
-							<ScreenLink href={"browse"} label={"Browse"} icon={TravelExploreIcon} />
-							<ScreenLink href={"watchlist"} label={"Watchlist"} icon={ListAltIcon} />
+							<ScreenLink href={"scraper"} label={"Scraper"} icon={DocumentScannerIcon} />
 							<ScreenLink href={"settings"} label={"Settings"} icon={SettingsIcon} />
 						</Box>
+						
 						<Box extendedClass={styles.AccountContainer}>
 							<Button onClick={toggleSidebar} extendedClass={styles.AccountButton}>
 								<Icon icon={AccountCircleIcon} extendedClass={styles.AccountButtonIcon} />

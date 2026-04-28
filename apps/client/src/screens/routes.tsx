@@ -1,10 +1,8 @@
 import { BasicLayout } from "@layouts/BasicLayout";
-import { Dashboard } from "@screens/Dashboard/Dashboard";
 import { Home } from "@screens/Home/Home";
 import { Settings } from "@screens/Settings/Settings";
-import { Watchlist } from "@screens/Watchlist/Watchlist";
+import { Scraper } from "@screens/Scraper/Scraper";
 import { createRouter, RootRoute, Route, redirect } from "@tanstack/react-router";
-import { Browse } from "./Browse/Browse";
 
 // Root route wraps the persistent layout
 const rootRoute = new RootRoute({
@@ -18,13 +16,6 @@ const rootRoute = new RootRoute({
 	},
 });
 
-// Dashboard route
-const dashboardRoute = new Route({
-	getParentRoute: () => rootRoute,
-	path: "/dashboard",
-	component: Dashboard,
-});
-
 // Settings route
 const settingsRoute = new Route({
 	getParentRoute: () => rootRoute,
@@ -32,11 +23,11 @@ const settingsRoute = new Route({
 	component: Settings,
 });
 
-// Watchlist route
-const watchlistRoute = new Route({
+// Scraper route
+const scraperRoute = new Route({
 	getParentRoute: () => rootRoute,
-	path: "/watchlist",
-	component: Watchlist,
+	path: "/scraper",
+	component: Scraper,
 });
 
 // Home route
@@ -46,20 +37,9 @@ const homeRoute = new Route({
 	component: Home,
 });
 
-// Browse route
-const browseRoute = new Route({
-	getParentRoute: () => rootRoute,
-	path: "/browse",
-	component: Browse,
-	validateSearch: (search: Record<string, unknown>) => {
-		const market = typeof search.market === "string" ? search.market : undefined;
-
-		return { market };
-	},
-});
 
 // Create the route tree
-const routeTree = rootRoute.addChildren([dashboardRoute, settingsRoute, watchlistRoute, homeRoute, browseRoute]);
+const routeTree = rootRoute.addChildren([ settingsRoute, scraperRoute, homeRoute]);
 
 // Create and export the router
 export const router = createRouter({ routeTree });
