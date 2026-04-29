@@ -3,6 +3,8 @@ import { Paper } from "@components/Paper/Paper";
 import { Typography } from "@components/Typography/Typography";
 import styles from "./Scraper.module.css";
 import { IconButton } from "@components/IconButton/IconButton";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import StopIcon from "@mui/icons-material/Stop";
@@ -158,6 +160,17 @@ export function Scraper(): React.ReactElement | null {
 		}
 	}
 
+	function copyLogs() {
+		const text = logs.map((e) => e.text).join("\n");
+		navigator.clipboard.writeText(text).catch((err) => {
+			console.error("[Scraper] Failed to copy logs:", err);
+		});
+	}
+
+	function clearLogs() {
+		setLogs([]);
+	}
+
 	async function restartScraper() {
 		try {
 			await fetch("/api/scraper/restart", {
@@ -207,6 +220,18 @@ export function Scraper(): React.ReactElement | null {
 					<Box extendedClass={styles.ScraperConsole}>
 						<Box extendedClass={styles.ScraperConsoleHeading}>
 							<Typography text={"Console"} variant="h6" sx={fontSx} />
+							<Box extendedClass={styles.ScraperConsoleActions}>
+								<IconButton onClick={copyLogs} disabled={logs.length === 0} aria-label="Copy logs">
+									<ContentCopyIcon fontSize="small" />
+								</IconButton>
+								<IconButton
+									onClick={clearLogs}
+									disabled={logs.length === 0}
+									aria-label="Clear console"
+								>
+									<DeleteSweepIcon fontSize="small" />
+								</IconButton>
+							</Box>
 						</Box>
 						<div ref={consoleRef} className={styles.ScraperConsoleConsole}>
 							{logs.map((entry) => (

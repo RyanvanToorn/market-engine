@@ -54,7 +54,7 @@ import type {
 	InstrumentPayload,
 } from "./types/index.js";
 import { YahooFinanceScraper } from "../scrapers/YahooFinanceScraper.js";
-import { CircuitBreaker } from "./utilities/CircuitBreaker.js";
+import { CircuitBreaker } from "../../../../packages/utils/CircuitBreaker.js";
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 

@@ -5,6 +5,7 @@ import styles from "./IconButton.styles.module.css";
 export interface IconButtonProps extends StandardComponentProps {
 	children?: React.ReactNode;
 	onClick?: () => void;
+	disabled?: boolean;
 }
 
 export function IconButton(props: IconButtonProps): React.ReactElement | null {
@@ -13,7 +14,14 @@ export function IconButton(props: IconButtonProps): React.ReactElement | null {
 	}
 
 	return (
-		<MUIIconButton id={props.id} className={`${styles.IconButton} ${props.extendedClass ?? ""}`} sx={props.sx}>
+		<MUIIconButton
+			type="button"
+			id={props.id}
+			className={`${styles.IconButton} ${props.extendedClass ?? ""}`}
+			sx={props.sx}
+			onClick={props.onClick}
+			disabled={props.disabled}
+		>
 			{props.children}
 		</MUIIconButton>
 	);

@@ -17,6 +17,7 @@ const LOG_BUFFER_LIMIT = 1000;
 // Resolve to monorepo root: apps/api/src → apps/api → apps → root
 const MONOREPO_ROOT = path.resolve(__dirname, "../../..");
 const SCRIPT_PATH = path.join(MONOREPO_ROOT, "apps", "collector", "src", "scripts", "promote.ts");
+const COLLECTOR_TSCONFIG = path.join(MONOREPO_ROOT, "apps", "collector", "tsconfig.json");
 
 class ScraperProcessManager {
 	private proc: ChildProcess | null = null;
@@ -33,17 +34,16 @@ class ScraperProcessManager {
 		}
 
 		this._config = { workers, headless };
-		const args = [SCRIPT_PATH, String(workers)];
+		const args = ["--tsconfig", COLLECTOR_TSCONFIG, SCRIPT_PATH, String(workers)];
 		if (!headless) args.push("--headed");
 
-		const proc = spawn("tsx", args, {
-			shell: true,
+		const tsxBin = path.join(MONOREPO_ROOT, "node_modules", ".bin", "tsx");
+		const proc = spawn(tsxBin, args, {
+			shell: false,
 			cwd: MONOREPO_ROOT,
 			env: {
 				...process.env,
-				// Prepend monorepo .bin to PATH so tsx resolves correctly
-				PATH: `${path.join(MONOREPO_ROOT, "node_modules", ".bin")}${path.delimiter}${process.env.PATH ?? ""}`,
-				API_BASE_URL: process.env.API_BASE_URL ?? "http://localhost:5204",
+				API_BASE_URL: process.env.API_BASE_URL ?? "http://localhost:3000",
 			},
 		});
 
