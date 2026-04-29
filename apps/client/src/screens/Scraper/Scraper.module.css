@@ -40,6 +40,8 @@
 	width: 100%;
 	border: 0.0625rem solid;
 	min-height: 40%;
+	display: flex;
+	flex-direction: column;
 }
 
 .ScraperConsoleHeading {
@@ -50,6 +52,24 @@
 	padding: var(--size-s);
 }
 
+.ScraperConsoleConsole {
+	flex: 1;
+	font-family: "Consolas", "Monaco", "Courier New", monospace;
+	font-size: 0.8rem;
+	background-color: #1a1a1a;
+	color: #d4d4d4;
+	overflow-y: auto;
+	padding: var(--size-s);
+	box-sizing: border-box;
+	min-height: 10rem;
+}
+
+.ScraperConsoleLog {
+	white-space: pre-wrap;
+	word-break: break-all;
+	line-height: 1.5;
+}
+
 .ScraperControls {
 	border: 0.0625rem solid;
 }
@@ -58,4 +78,43 @@
 	border: 0.0625rem solid;
 	padding: var(--size-l);
 	width: 100%;
+}
+
+.ScraperSettingsRow {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: var(--size-s);
+	padding: var(--size-xs) 0;
+}
+
+.ScraperHeadingLeft {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: var(--size-s);
+}
+
+.ScraperStatusBadge {
+	font-size: 0.75rem;
+	font-weight: 600;
+	padding: 0.2rem 0.6rem;
+	border-radius: 1rem;
+	text-transform: capitalize;
+	letter-spacing: 0.03em;
+}
+
+.ScraperStatus_idle {
+	background-color: #424242;
+	color: #bdbdbd;
+}
+
+.ScraperStatus_running {
+	background-color: #1b5e20;
+	color: #a5d6a7;
+}
+
+.ScraperStatus_stopping {
+	background-color: #e65100;
+	color: #ffe0b2;
 }
